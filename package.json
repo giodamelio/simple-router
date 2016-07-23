@@ -1,0 +1,24 @@
+{
+  "name": "simple-router",
+  "version": "0.1.0",
+  "description": "A super simple http router",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "http",
+    "router",
+    "framework"
+  ],
+  "author": "Gio d'Amelio",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/giodamelio/simple-router.git"
+  },
+  "bugs": {
+    "url": "https://github.com/giodamelio/simple-router/issues"
+  },
+  "homepage": "https://github.com/giodamelio/simple-router#readme"
+}
