@@ -6,7 +6,8 @@
   "scripts": {
     "test": "mocha test/",
     "lint": "eslint lib/ test/",
-    "cover": "istanbul cover _mocha"
+    "cover": "istanbul cover _mocha",
+    "watch": "nodemon -w lib/ -w test/ -x 'node ./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha'"
   },
   "keywords": [
     "http",
@@ -30,6 +31,7 @@
     "eslint-plugin-import": "^1.11.1",
     "istanbul": "^0.4.4",
     "mocha": "^2.5.3",
+    "nodemon": "^1.9.2",
     "supertest": "^1.2.0",
     "supertest-as-promised": "^3.2.0"
   },
