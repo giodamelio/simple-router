@@ -9,6 +9,7 @@
       "error", {
         "devDependencies": true
       }
-    ]
+    ],
+    "space-before-function-paren": ["error", "never"]
   }
 }
