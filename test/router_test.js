@@ -1,7 +1,7 @@
 const http = require('http');
 
 const expect = require('chai').expect;
-const supertest = require('supertest');
+const supertest = require('supertest-as-promised');
 
 const Router = require('../');
 
@@ -11,7 +11,7 @@ describe('Router', () => {
     expect(router).to.be.an.instanceof(Router);
   });
 
-  it('Creates simple route', (done) => {
+  it('Creates simple route', () => {
     const router = new Router();
 
     router.get('/', (req, res) => {
@@ -19,10 +19,9 @@ describe('Router', () => {
       res.end('Hello World!');
     });
 
-    supertest(http.createServer(router.route()))
+    return supertest(http.createServer(router.route()))
       .get('/')
       .expect(200)
-      .expect('Content-Type', 'text/plain')
-      .end(done);
+      .expect('Content-Type', 'text/plain');
   });
 });
