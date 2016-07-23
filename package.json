@@ -4,7 +4,8 @@
   "description": "A super simple http router",
   "main": "lib/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint lib/ test/"
   },
   "keywords": [
     "http",
@@ -20,5 +21,10 @@
   "bugs": {
     "url": "https://github.com/giodamelio/simple-router/issues"
   },
-  "homepage": "https://github.com/giodamelio/simple-router#readme"
+  "homepage": "https://github.com/giodamelio/simple-router#readme",
+  "devDependencies": {
+    "eslint": "^3.1.1",
+    "eslint-config-airbnb-base": "^4.0.2",
+    "eslint-plugin-import": "^1.11.1"
+  }
 }
