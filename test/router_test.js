@@ -11,6 +11,21 @@ describe('Router', () => {
     expect(router).to.be.an.instanceof(Router);
   });
 
+  it('Handles errors', () => {
+    const router = new Router();
+
+    router.get('/', (req, res) => {
+      res.writeHead(200, { 'Content-Type': 'text/plain' });
+      res.end('Hello World!');
+    });
+
+    return supertest(http.createServer(router.route()))
+      .get('/haha')
+      .expect('Content-Type', 'text/plain')
+      .expect(404)
+      .expect('404 not found');
+  });
+
   describe('Test each method type', () => {
     // Don't test CONNECT method because it works a bit different then the rest
     http.METHODS.splice(http.METHODS.indexOf('CONNECT'), 1);
