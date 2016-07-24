@@ -27,7 +27,7 @@ describe('Router - Chain multiple callbacks', () => {
       .expect('Hello World!');
   });
 
-  it.only('Handler does not return promise', () => {
+  it('Handler does not return promise', () => {
     const router = new Router();
 
     router.get('/', (req, res) => {
