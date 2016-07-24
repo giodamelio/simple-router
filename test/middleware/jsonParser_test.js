@@ -10,8 +10,10 @@ describe('Middleware - Json Parser', () => {
     const router = new Router();
 
     router.post('/', Router.jsonParser(), (req, res) => {
-      res.writeHead(200, { 'Content-Type': 'application/json' });
-      res.end(JSON.stringify(req.body));
+      res.status(200);
+      res.header('Content-Type', 'application/json');
+      res.write(JSON.stringify(req.body));
+      res.end();
     });
 
     return supertest(http.createServer(router.route()))
@@ -30,7 +32,8 @@ describe('Middleware - Json Parser', () => {
     const router = new Router();
 
     router.post('/', Router.jsonParser(), (req, res) => {
-      res.writeHead(200, { 'Content-Type': 'application/json' });
+      res.status(200);
+      res.header('Content-Type', 'application/json');
       res.end(JSON.stringify(req.body));
     });
 

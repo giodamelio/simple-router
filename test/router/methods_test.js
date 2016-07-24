@@ -15,8 +15,11 @@ describe('Router - Test each method type', () => {
     it(`Test ${method} method`, () => {
       const router = new Router();
       router[method.toLowerCase()]('/', (req, res) => {
-        res.writeHead(200, { 'Content-Type': 'text/plain' });
-        res.end('Hello World!');
+        res.header('Content-Type', 'text/plain');
+        res.status(200);
+        res.write('Hello ');
+        res.write('World');
+        res.end('!');
       });
 
       return supertest(http.createServer(router.route()))[method.toLowerCase()]('/')

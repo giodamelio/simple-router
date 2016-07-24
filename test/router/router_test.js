@@ -16,7 +16,8 @@ describe('Router', () => {
     const router = new Router();
 
     router.get('/', (req, res) => {
-      res.writeHead(200, { 'Content-Type': 'text/plain' });
+      res.header('Content-Type', 'text/plain');
+      res.status(200);
       res.end('Hello World!');
     });
 

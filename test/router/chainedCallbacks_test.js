@@ -11,7 +11,8 @@ describe('Router - Chain multiple callbacks', () => {
 
     router.get('/', (req, res) => (
       new Promise((resolve) => {
-        res.writeHead(200, { 'Content-Type': 'text/plain' });
+        res.status(200);
+        res.header('Content-Type', 'text/plain');
         setTimeout(() => {
           resolve();
         }, 1000);
@@ -31,7 +32,8 @@ describe('Router - Chain multiple callbacks', () => {
     const router = new Router();
 
     router.get('/', (req, res) => {
-      res.writeHead(200, { 'Content-Type': 'text/plain' });
+      res.status(200);
+      res.header('Content-Type', 'text/plain');
     }, (req, res) => {
       res.end('Hello World!');
     });
