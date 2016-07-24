@@ -45,4 +45,24 @@ describe('Router', () => {
         hello: 'world!',
       });
   });
+
+  it('rootPath option', () => {
+    const router = new Router({
+      rootPath: '/api',
+    });
+
+    router.get('/hello', (req, res) => {
+      res.json({
+        hello: 'world!',
+      });
+    });
+
+    return supertest(http.createServer(router.route()))
+      .get('/api/hello')
+      .expect('Content-Type', 'application/json')
+      .expect(200)
+      .expect({
+        hello: 'world!',
+      });
+  });
 });
