@@ -26,4 +26,22 @@ describe('Router', () => {
       .expect(404)
       .expect('404 not found');
   });
+
+  it('Json helper', () => {
+    const router = new Router();
+
+    router.get('/', (req, res) => {
+      res.json({
+        hello: 'world!',
+      });
+    });
+
+    return supertest(http.createServer(router.route()))
+      .get('/')
+      .expect('Content-Type', 'application/json')
+      .expect(200)
+      .expect({
+        hello: 'world!',
+      });
+  });
 });
